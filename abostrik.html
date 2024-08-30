@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Abdalazez Website</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #263031;
+            color: rgb(255, 255, 255);
+            overflow: hidden;
+        }
+        #welcome, #info, #intro, #jordan {
+            text-align: center;
+            font-size: 2em;
+            display: none;
+        }
+        #info, #jordan {
+            line-height: 1.5;
+        }
+        #info {
+            overflow: hidden;
+            max-height: 0;
+            opacity: 0;
+            transition: max-height 2s ease-out, opacity 2s ease-out;
+        }
+        #info.open {
+            max-height: 500px;
+            opacity: 1;
+        }
+        #intro button {
+            padding: 15px 30px;
+            font-size: 1.2em;
+            cursor: pointer;
+            margin-top: 20px;
+            background-color: #ff6f61;
+            color: white;
+            border: none;
+            border-radius: 30px;
+            font-family: 'Roboto', sans-serif;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        #intro button:hover {
+            background-color: #ff4c3b;
+            transform: translateY(-2px);
+        }
+        #jordan {
+            opacity: 0;
+            transition: opacity 2s ease-in;
+        }
+        #jordan img {
+            max-width: 80%;
+            height: auto;
+            margin-top: 20px;
+        }
+        #jordan p {
+            font-size: 1em;
+            margin-top: 20px;
+            padding: 0 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="welcome">Welcome to Abdalazez Website...</div>
+
+    <div id="info">
+        <h1>some things about me (:</h1>
+        <p>My name is Abdalazez.</p>
+        <p>I am 15 years old.</p>
+        <p>From Jordan: a country located in the Middle East</p>
+        <p>I work on technology-related developments.</p>
+        <p>I also run an educational programming channel.</p>
+        <p>And many other things!</p>
+        <p>---------------------------------------------------------------</p>
+    </div>
+
+    <div id="intro">
+        <p>For those who don't know Jordan,<br> click on the "More" button below to see some information about it.</p>
+        <button onclick="showJordan()">More</button>
+    </div>
+
+    <div id="jordan">
+        <img src="https://alamphoto.com/wp-content/uploads/2018/01/Flag-of-Jordan-10-623x414.jpg" alt="Jordan Flag">
+        <p>This is Jordan</p>
+        <p>Jordan (officially: The Hashemite Kingdom of Jordan) is an Arab country located in Western Asia, in the middle of the Middle East, located in the southern part of the Levant region, and the northern part of the Arabian Peninsula region. It is famous for one of its foods and archaeological sites such as Petra.</p>
+    </div>
+
+    <script>
+        document.getElementById('welcome').style.display = 'block';
+
+        setTimeout(function() {
+            document.getElementById('welcome').style.display = 'none';
+            document.getElementById('info').style.display = 'block';
+            setTimeout(function() {
+                document.getElementById('info').classList.add('open');
+            }, 10); // small delay to trigger the transition
+        }, 3000); // 3 seconds
+
+        setTimeout(function() {
+            document.getElementById('info').style.display = 'none';
+            document.getElementById('intro').style.display = 'block';
+        }, 12000); // 12 seconds (3 seconds for welcome + 9 seconds for info)
+
+        function showJordan() {
+            document.getElementById('intro').style.display = 'none';
+            document.getElementById('jordan').style.display = 'block';
+            setTimeout(function() {
+                document.getElementById('jordan').style.opacity = '1';
+            }, 10); // small delay to trigger the fade-in effect
+        }
+    </script>
+</body>
+</html>
